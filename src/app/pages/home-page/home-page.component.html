@@ -1,0 +1,21 @@
+<div class="todo">
+    <h1 class="text-center py-5 ">
+        <b>MY TO DO LIST</b>
+    </h1>
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="addInput my-5">
+            <input class="inputAdd" type="text" />
+        </div>
+        <div class="box p-5">
+            <ul class="list">
+                <ng-container *ngFor="let item of todos; let i = index; trackBy: trackById">
+                    <li class="d-flex align-items-center" [ngClass]="{'new-line': i > 0 && i % 3 === 0}">
+                        <input type="checkbox" name="select" id="" />
+                        <p [ngClass]="{'strike-through': item.deleted}" class="ml-3">{{item.title}}</p>
+                        <i class="bi bi-trash trash-icon ml-3" (click)="deleteItem(item)"></i>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</div>
